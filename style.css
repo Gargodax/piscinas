@@ -16,6 +16,7 @@ h1{
 main{
     margin-top: 5rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly; 
     gap: 1rem;
 
@@ -23,7 +24,7 @@ main{
 .cards{
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     gap: 1rem;
 }
 
