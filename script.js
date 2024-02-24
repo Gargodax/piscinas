@@ -98,7 +98,7 @@ function limpiarOvalo() {
 }
 
 btnOvalo.addEventListener("click", calculaOvalo);
-resetOvalo.addEventListener("click", limpiarRinon);
+resetOvalo.addEventListener("click", limpiarOvalo);
 /*-------------------------------------Piscina redonda-------------------------------------*/
 
 /*-------------------------------------- Piscina riñón --------------------------------------*/
