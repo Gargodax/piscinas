@@ -3,10 +3,11 @@
 const cardContainerRectangulo = document.getElementById("card-container-rectangulo")
 const formContainerRectangulo = document.getElementById("form-container-rectangulo")
 const portadaRectangulo = document.getElementById("portada-rectangulo")
+const tituloRectangulo = document.getElementById("titulo-rectangulo")
 const formRectangulo = document.getElementById("formulario-rectangulo")
 
 cardContainerRectangulo.addEventListener('click', function(e) {
-    if(e.target === portadaRectangulo || e.target === formRectangulo) {
+    if(e.target === portadaRectangulo || e.target === tituloRectangulo || e.target === formRectangulo) {
         formContainerRectangulo.classList.toggle('voltear')
     }
 });
@@ -39,10 +40,11 @@ resetRectangulo.addEventListener("click", limpiarRectangulo);
 const cardContainerRedondo = document.getElementById("card-container-redondo")
 const formContainerRedondo = document.getElementById("form-container-redondo")
 const portadaRedondo = document.getElementById("portada-redondo")
+const tituloRedondo = document.getElementById("titulo-redondo")
 const formRedondo = document.getElementById("formulario-redondo")
 
 cardContainerRedondo.addEventListener('click', function(e) {
-    if(e.target === portadaRedondo || e.target === formRedondo) {
+    if(e.target === portadaRedondo || e.target === tituloRedondo || e.target === formRedondo) {
         formContainerRedondo.classList.toggle('voltear')
     }
 });
@@ -72,10 +74,11 @@ resetRedondo.addEventListener("click", limpiarRedondo);
 const cardContainerOvalo = document.getElementById("card-container-ovalo")
 const formContainerOvalo = document.getElementById("form-container-ovalo")
 const portadaOvalo = document.getElementById("portada-ovalo")
+const tituloOvalo = document.getElementById("titulo-ovalo")
 const formOvalo = document.getElementById("formulario-ovalo")
 
 cardContainerOvalo.addEventListener('click', function(e) {
-    if(e.target === portadaOvalo || e.target === formOvalo) {
+    if(e.target === portadaOvalo || e.target === tituloOvalo || e.target === formOvalo) {
         formContainerOvalo.classList.toggle('voltear')
     }
 });
@@ -99,16 +102,17 @@ function limpiarOvalo() {
 
 btnOvalo.addEventListener("click", calculaOvalo);
 resetOvalo.addEventListener("click", limpiarOvalo);
-/*-------------------------------------Piscina redonda-------------------------------------*/
+/*------------------------------------- Piscina ovalada -------------------------------------*/
 
 /*-------------------------------------- Piscina riñón --------------------------------------*/
 const cardContainerRinon = document.getElementById("card-container-rinon")
 const formContainerRinon = document.getElementById("form-container-rinon")
 const portadaRinon = document.getElementById("portada-rinon")
+const tituloRinon = document.getElementById("titulo-rinon")
 const formRinon = document.getElementById("formulario-rinon")
 
 cardContainerRinon.addEventListener('click', function(e) {
-    if(e.target === portadaRinon || e.target === formRinon) {
+    if(e.target === portadaRinon || e.target === tituloRinon || e.target === formRinon) {
         formContainerRinon.classList.toggle('voltear')
     }
 });
@@ -133,4 +137,39 @@ function limpiarRinon() {
 btnRinon.addEventListener("click", calculaRinon);
 resetRinon.addEventListener("click", limpiarRinon);
 /*-------------------------------------- Piscina riñón --------------------------------------*/
+
+/*----------------------------------- Piscina triangular ------------------------------------*/
+const cardContainerTriangulo = document.getElementById("card-container-triangulo")
+const formContainerTriangulo = document.getElementById("form-container-triangulo")
+const portadaTriangulo = document.getElementById("portada-triangulo")
+const tituloTriangulo = document.getElementById("titulo-triangulo")
+const formTriangulo = document.getElementById("formulario-triangulo")
+
+cardContainerTriangulo.addEventListener('click', function(e) {
+    if(e.target === portadaTriangulo || e.target === tituloTriangulo || e.target === formTriangulo) {
+        formContainerTriangulo.classList.toggle('voltear')
+    }
+});
+
+const btnTriangulo = document.getElementById("calcula-triangulo");
+const resetTriangulo = document.getElementById("reset-triangulo");
+var resultadoTriangulo = document.getElementById("resultado-triangulo");
+
+
+
+function calculaTriangulo() {
+    let largo = document.getElementById("triangular-lenght").value
+    let ancho = document.getElementById("triangular-width").value
+    let playo = document.getElementById("triangular-depth-low").value
+    let profundo = document.getElementById("triangular-depth-high").value
+    resultadoTriangulo.textContent = ("Volumen de la piscina:\n" + (((parseFloat(largo) * parseFloat(ancho))/2) * ((parseFloat(playo) + parseFloat(profundo)) / 2)) * 1000 + " litros.")
+}
+
+function limpiarTriangulo() {
+    resultadoTriangulo.textContent = ""
+}
+
+btnTriangulo.addEventListener("click", calculaTriangulo);
+resetTriangulo.addEventListener("click", limpiarTriangulo);
+/*----------------------------------- Piscina triangular ------------------------------------*/
 

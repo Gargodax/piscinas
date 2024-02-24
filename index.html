@@ -34,7 +34,7 @@
         <div class="form-container"  id="form-container-rectangulo">
 
           <div class="portada" id="portada-rectangulo">
-            <h2 class="titulo-tarjeta">Piscina rectangular</h2>
+            <h2 class="titulo-tarjeta" id="titulo-rectangulo">Piscina rectangular</h2>
           </div>
 
           <form class="form" id="formulario-rectangulo">
@@ -82,7 +82,7 @@
         <div class="form-container" id="form-container-redondo">
 
           <div class="portada" id="portada-redondo">
-            <h2 class="titulo-tarjeta">Piscina redonda</h2>
+            <h2 class="titulo-tarjeta" id="titulo-redondo">Piscina redonda</h2>
           </div>
 
           <form class="form" id="formulario-redondo">
@@ -125,7 +125,7 @@
         <div class="form-container" id="form-container-ovalo">
 
           <div class="portada" id="portada-ovalo">
-            <h2 class="titulo-tarjeta">Piscina ovalada</h2>
+            <h2 class="titulo-tarjeta" id="titulo-ovalo">Piscina ovalada</h2>
           </div>
 
           <form class="form" id="formulario-ovalo">
@@ -171,7 +171,7 @@
         <div class="form-container" id="form-container-rinon">
 
           <div class="portada" id="portada-rinon">
-            <h2 class="titulo-tarjeta">Piscina riñón</h2>
+            <h2 class="titulo-tarjeta" id="titulo-rinon">Piscina riñón</h2>
           </div>
 
           <form class="form" id="formulario-rinon">
@@ -214,6 +214,58 @@
           </form>
         </div>
       </section>
+
+
+      <!--Piscina triangular-->
+
+      <section class="card-container" id="card-container-triangulo">
+
+        <div class="form-container"  id="form-container-triangulo">
+
+          <div class="portada" id="portada-triangulo">
+            <h2 class="titulo-tarjeta" id="titulo-triangulo">Piscina triangular</h2>
+          </div>
+
+          <form class="form" id="formulario-triangulo">
+
+            <h3>Piscina triangular</h3>
+            
+            <div class="measures-field">
+              <div>
+                <label for="triangular-lenght" class="label">Largo:</label>
+                <input type="number" id="triangular-lenght" name="triangular-lenght" min="0" step="1" required
+                  placeholder=0>
+              </div>
+              <div>
+                <label for="triangular-width" class="label">Ancho:</label>
+                <input type="number" id="triangular-width" name="triangular-width" min="0" step="1" required
+                  placeholder=0>
+              </div>
+              <div>
+                <label for="triangular-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="triangular-depth-low" name="triangular-depth-low" min="0" step="1" required
+                  placeholder=0>
+              </div>
+              <div>
+                <label for="triangular-depth-high" class="label">Profundidad máxima:</label>
+                <input type="number" id="triangular-depth-high" name="triangular-depth-high" min="0" step="1" required
+                  placeholder=0>
+              </div>
+            </div>
+            <div class="btn-field">
+              <div class="controls">
+                <button type="button" id="calcula-triangulo">Calcular</button>
+                <button type="reset" id="reset-triangulo">Limpiar</button>
+              </div>
+              <textarea class="resultado" id="resultado-triangulo" readonly></textarea>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+
+
     </article>
 
     <article class="info">
