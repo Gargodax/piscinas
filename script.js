@@ -1,5 +1,6 @@
 
 /*----------------------------------- Piscina rectangular -----------------------------------*/
+//Efecto en tarjetas (girar 180 grados)
 const cardContainerRectangulo = document.getElementById("card-container-rectangulo")
 const formContainerRectangulo = document.getElementById("form-container-rectangulo")
 const portadaRectangulo = document.getElementById("portada-rectangulo")
@@ -12,36 +13,39 @@ cardContainerRectangulo.addEventListener('click', function(e) {
     }
 });
 
-const btnRectangulo = document.getElementById("calcula-rectangulo");
-const resetRectangulo = document.getElementById("reset-rectangulo");
-var resultadoRectangulo = document.getElementById("resultado-rectangulo");
+//Recupero de valores de los inputs, borrado del valor por defecto e inserción del resultado en textArea (sólo lectura)
+document.getElementById("formulario-rectangulo").addEventListener('submit', function(event) {
+    event.preventDefault();
+    let resultado = document.getElementById("rectangular-lenght").valueAsNumber *
+                    document.getElementById("rectangular-width").valueAsNumber *
+                    ((document.getElementById("rectangular-depth-high").valueAsNumber +
+                    document.getElementById("rectangular-depth-low").valueAsNumber) /2);
+                    document.getElementById("resultado-rectangulo").textContent =
+                    " El volumen de la piscina es:\n" + Math.round(resultado) * 1000 + " litros."
+})
 
+//El valor de los inputs por defecto es 0. Esta función limpia el campo al hacer click en él.
+document.getElementById("formulario-rectangulo").addEventListener('click', function(e) {
+    if(e.target.tagName= "INPUT") {
+        e.target.value =""
+    }
+})
 
-
-function calculaRectangulo() {
-    let largo = document.getElementById("rectangular-lenght").value
-    let ancho = document.getElementById("rectangular-width").value
-    let playo = document.getElementById("rectangular-depth-low").value
-    let profundo = document.getElementById("rectangular-depth-high").value
-    resultadoRectangulo.textContent = ("Volumen de la piscina:\n" + (parseFloat(largo) * parseFloat(ancho) * ((parseFloat(playo) + parseFloat(profundo)) / 2)) * 1000 + " litros.")
-}
-
-function limpiarRectangulo() {
-    resultadoRectangulo.textContent = ""
-}
-
-btnRectangulo.addEventListener("click", calculaRectangulo);
-resetRectangulo.addEventListener("click", limpiarRectangulo);
-
+//Se aprovecha el click para limpiar el formulario y se deja sin valor el campo donde se expresa el resultado.
+document.getElementById("reset-rectangulo").addEventListener('click', function() {
+    document.getElementById("resultado-rectangulo").textContent = ""
+})
 /*----------------------------------- Piscina rectangular -----------------------------------*/
 
 
 /*------------------------------------- Piscina redonda -------------------------------------*/
+//Efecto en tarjetas (girar 180 grados)
 const cardContainerRedondo = document.getElementById("card-container-redondo")
 const formContainerRedondo = document.getElementById("form-container-redondo")
 const portadaRedondo = document.getElementById("portada-redondo")
 const tituloRedondo = document.getElementById("titulo-redondo")
 const formRedondo = document.getElementById("formulario-redondo")
+const Round = 0.785
 
 cardContainerRedondo.addEventListener('click', function(e) {
     if(e.target === portadaRedondo || e.target === tituloRedondo || e.target === formRedondo) {
@@ -49,33 +53,39 @@ cardContainerRedondo.addEventListener('click', function(e) {
     }
 });
 
-const Round = 0.785;
-const btnRedondo = document.getElementById("calcula-redondo");
-const resetRedondo = document.getElementById("reset-redondo");
-var resultadoRedondo = document.getElementById("resultado-redondo");
+//Recupero de valores de los inputs, borrado del valor por defecto e inserción del resultado en textArea (sólo lectura)
+document.getElementById("formulario-redondo").addEventListener('submit', function(event) {
+    event.preventDefault();
+    let resultado = ((document.getElementById("diameter").valueAsNumber) **2) *
+                    ((document.getElementById("round-depth-high").valueAsNumber +
+                    document.getElementById("round-depth-low").valueAsNumber) /2) *
+                    Round;
+                    document.getElementById("resultado-redondo").textContent =
+                    " El volumen de la piscina es:\n" + Math.round(resultado) * 1000 + " litros."
+})
 
-function calculaRedondo() {
-    let diametro = document.getElementById("diameter").value
-    let playo = document.getElementById("round-depth-low").value
-    let profundo = document.getElementById("round-depth-high").value
-    resultadoRedondo.textContent = ("Volumen de la piscina:\n" + (parseFloat(diametro) * parseFloat(diametro) * ((parseFloat(playo) + parseFloat(profundo)) / 2) * Round) * 1000 + " litros.")
-}
+//El valor de los input por defecto es 0. Esta función limpia el campo al hacer click en él.
+document.getElementById("formulario-redondo").addEventListener('click', function(e) {
+    if(e.target.tagName= "INPUT") {
+        e.target.value =""
+    }
+})
 
-function limpiarRedondo() {
-    resultadoRedondo.textContent = ""
-}
-
-btnRedondo.addEventListener("click", calculaRedondo);
-resetRedondo.addEventListener("click", limpiarRedondo);
+//Se aprovecha el click para limpiar el formulario y se deja sin valor el campo donde se expresa el resultado.
+document.getElementById("reset-redondo").addEventListener('click', function(){
+    document.getElementById("resultado-redondo").textContent = ""
+})
 /*------------------------------------- Piscina redonda -------------------------------------*/
 
 
 /*------------------------------------- Piscina ovalada -------------------------------------*/
+//Efecto en tarjetas (girar 180 grados)
 const cardContainerOvalo = document.getElementById("card-container-ovalo")
 const formContainerOvalo = document.getElementById("form-container-ovalo")
 const portadaOvalo = document.getElementById("portada-ovalo")
 const tituloOvalo = document.getElementById("titulo-ovalo")
 const formOvalo = document.getElementById("formulario-ovalo")
+const Oval = 0.89
 
 cardContainerOvalo.addEventListener('click', function(e) {
     if(e.target === portadaOvalo || e.target === tituloOvalo || e.target === formOvalo) {
@@ -83,33 +93,40 @@ cardContainerOvalo.addEventListener('click', function(e) {
     }
 });
 
-const Oval = 0.89
-const btnOvalo = document.getElementById("calcula-ovalo");
-const resetOvalo = document.getElementById("reset-ovalo");
-var resultadoOvalo = document.getElementById("resultado-ovalo");
+//Recupero de valores de los inputs, borrado del valor por defecto e inserción del resultado en textArea (sólo lectura)
+document.getElementById("formulario-ovalo").addEventListener('submit', function(event) {
+    event.preventDefault();
+    let resultado = document.getElementById("oval-lenght").valueAsNumber *
+                    document.getElementById("oval-width").valueAsNumber *
+                    ((document.getElementById("oval-depth-high").valueAsNumber +
+                    document.getElementById("oval-depth-low").valueAsNumber) /2) *
+                    Oval;
+                    document.getElementById("resultado-ovalo").textContent =
+                    " El volumen de la piscina es:\n" + Math.round(resultado) * 1000 + " litros."
+})
 
-function calculaOvalo() {
-    let largo = document.getElementById("oval-lenght").value
-    let ancho = document.getElementById("oval-width").value
-    let playo = document.getElementById("oval-depth-low").value
-    let profundo = document.getElementById("oval-depth-high").value
-    resultadoOvalo.textContent = ("Volumen de la piscina:\n" + (parseFloat(largo) * parseFloat(ancho) * ((parseFloat(playo) + parseFloat(profundo)) / 2) * Oval) * 1000 + " litros.")
-}
+//El valor de los input por defecto es 0. Esta función limpia el campo al hacer click en él.
+document.getElementById("formulario-ovalo").addEventListener('click', function(e) {
+    if(e.target.tagName= "INPUT") {
+        e.target.value =""
+    }
+})
 
-function limpiarOvalo() {
-    resultadoOvalo.textContent = ""
-}
-
-btnOvalo.addEventListener("click", calculaOvalo);
-resetOvalo.addEventListener("click", limpiarOvalo);
+//Se aprovecha el click para limpiar el formulario y se deja sin valor el campo donde se expresa el resultado.
+document.getElementById("reset-ovalo").addEventListener('click', function(){
+    document.getElementById("resultado-ovalo").textContent = ""
+})
 /*------------------------------------- Piscina ovalada -------------------------------------*/
 
+
 /*-------------------------------------- Piscina riñón --------------------------------------*/
+//Efecto en tarjetas (girar 180 grados)
 const cardContainerRinon = document.getElementById("card-container-rinon")
 const formContainerRinon = document.getElementById("form-container-rinon")
 const portadaRinon = document.getElementById("portada-rinon")
 const tituloRinon = document.getElementById("titulo-rinon")
 const formRinon = document.getElementById("formulario-rinon")
+const Kidney = 0.45
 
 cardContainerRinon.addEventListener('click', function(e) {
     if(e.target === portadaRinon || e.target === tituloRinon || e.target === formRinon) {
@@ -117,28 +134,35 @@ cardContainerRinon.addEventListener('click', function(e) {
     }
 });
 
-const Kidney = 0.45;
-const btnRinon = document.getElementById("calcula-rinon");
-const resetRinon = document.getElementById("reset-rinon");
-var resultadoRinon = document.getElementById("resultado-rinon");
+//Recupero de valores de los inputs, borrado del valor por defecto e inserción del resultado en textArea (sólo lectura)
+document.getElementById("formulario-rinon").addEventListener('submit', function(event) {
+    event.preventDefault();
+    let resultado = document.getElementById("kidney-lenght").valueAsNumber *
+                    (document.getElementById("kidney-width-high").valueAsNumber +
+                    document.getElementById("kidney-width-low").valueAsNumber) *
+                    ((document.getElementById("kidney-depth-high").valueAsNumber +
+                    document.getElementById("kidney-depth-low").valueAsNumber) /2) *
+                    Kidney;
+                    document.getElementById("resultado-rinon").textContent =
+                    " El volumen de la piscina es:\n" + Math.round(resultado) * 1000 + " litros."
+})
 
-function calculaRinon() {
-    let largo = document.getElementById("kidney-lenght").value
-    let anchoMenor = document.getElementById("kidney-width-low").value
-    let anchoMayor = document.getElementById("kidney-width-high").value
-    let playo = document.getElementById("kidney-depth-low").value
-    let profundo = document.getElementById("kidney-depth-high").value
-    resultadoRinon.textContent = ("Volumen de la piscina:\n" + (parseFloat(largo) * (parseFloat(anchoMenor) + parseFloat(anchoMayor)) * ((parseFloat(playo) + parseFloat(profundo)) / 2) * Kidney) * 1000 + " litros.")
-}
-function limpiarRinon() {
-    resultadoRinon.textContent = ""
-}
+//El valor de los inputs por defecto es 0. Esta función limpia el campo al hacer click en él.
+document.getElementById("formulario-rinon").addEventListener('click', function(e) {
+    if(e.target.tagName= "INPUT") {
+        e.target.value =""
+    }
+})
 
-btnRinon.addEventListener("click", calculaRinon);
-resetRinon.addEventListener("click", limpiarRinon);
+//Se aprovecha el click para limpiar el formulario y se deja sin valor el campo donde se expresa el resultado.
+document.getElementById("reset-rinon").addEventListener('click', function() {
+    document.getElementById("resultado-rinon").textContent = ""
+})
 /*-------------------------------------- Piscina riñón --------------------------------------*/
 
+
 /*----------------------------------- Piscina triangular ------------------------------------*/
+//Efecto en tarjetas (girar 180 grados)
 const cardContainerTriangulo = document.getElementById("card-container-triangulo")
 const formContainerTriangulo = document.getElementById("form-container-triangulo")
 const portadaTriangulo = document.getElementById("portada-triangulo")
@@ -151,25 +175,26 @@ cardContainerTriangulo.addEventListener('click', function(e) {
     }
 });
 
-const btnTriangulo = document.getElementById("calcula-triangulo");
-const resetTriangulo = document.getElementById("reset-triangulo");
-var resultadoTriangulo = document.getElementById("resultado-triangulo");
+//Recupero de valores de los inputs, borrado del valor por defecto e inserción del resultado en textArea (sólo lectura)
+document.getElementById("formulario-triangulo").addEventListener('submit', function(event) {
+    event.preventDefault();
+    let resultado = ((document.getElementById("triangular-lenght").valueAsNumber *
+                    document.getElementById("triangular-width").valueAsNumber)/2) *
+                    ((document.getElementById("triangular-depth-high").valueAsNumber +
+                    document.getElementById("triangular-depth-low").valueAsNumber) /2);
+                    document.getElementById("resultado-triangulo").textContent =
+                    " El volumen de la piscina es:\n" + Math.round(resultado) * 1000 + " litros."
+})
 
+//El valor de los inputs por defecto es 0. Esta función limpia el campo al hacer click en él.
+document.getElementById("formulario-triangulo").addEventListener('click', function(e) {
+    if(e.target.tagName= "INPUT") {
+        e.target.value =""
+    }
+})
 
-
-function calculaTriangulo() {
-    let largo = document.getElementById("triangular-lenght").value
-    let ancho = document.getElementById("triangular-width").value
-    let playo = document.getElementById("triangular-depth-low").value
-    let profundo = document.getElementById("triangular-depth-high").value
-    resultadoTriangulo.textContent = ("Volumen de la piscina:\n" + (((parseFloat(largo) * parseFloat(ancho))/2) * ((parseFloat(playo) + parseFloat(profundo)) / 2)) * 1000 + " litros.")
-}
-
-function limpiarTriangulo() {
-    resultadoTriangulo.textContent = ""
-}
-
-btnTriangulo.addEventListener("click", calculaTriangulo);
-resetTriangulo.addEventListener("click", limpiarTriangulo);
+//Se aprovecha el click para limpiar el formulario y se deja sin valor el campo donde se expresa el resultado.
+document.getElementById("reset-triangulo").addEventListener('click', function() {
+    document.getElementById("resultado-triangulo").textContent = ""
+})
 /*----------------------------------- Piscina triangular ------------------------------------*/
-

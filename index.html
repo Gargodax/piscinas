@@ -5,9 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Volumen de piscina</title>
 </head>
 
@@ -15,13 +12,16 @@
 
   <h1>Calcular volumen de piscina</h1>
 
-  <main>
+  <main id="main">
     <section class="main-text">
-      <p>Para mantener correctamente el estado de una piscina, <b>es esencial conocer qué
-        cantidad de agua necesita</b>. Seleccione una o varias opciones para calcular su capacidad.
-        <br>
-        <br>
-        Para <u>piscinas con formas irregulares</u> se recomienda separar imaginariamente el espacio en formas
+
+      <p>
+        Para mantener correctamente el estado del agua de su piscina <b>es necesario conocer cuántos litros contiene</b>.
+        
+        Complete una o varias opciones para calcular el volumen de su piscina.
+      </p>
+      <p class="nota">
+        *Para <u>piscinas con formas irregulares</u> se recomienda separar imaginariamente el espacio en formas
         geométricas más pequeñas y regulares, calcular los volúmenes por separado y luego sumar lo resultados.
       </p>
     </section>
@@ -38,37 +38,38 @@
           </div>
 
           <form class="form" id="formulario-rectangulo">
+        
+            <div class="measures-field" id="measures-rectangle">
 
-            <h3>Piscina rectangular</h3>
-            
-            <div class="measures-field">
+              <h3>Piscina rectangular</h3>
+
               <div>
                 <label for="rectangular-lenght" class="label">Largo:</label>
-                <input type="number" id="rectangular-lenght" name="rectangular-lenght" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="rectangular-lenght" name="rectangular-lenght" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
                 <label for="rectangular-width" class="label">Ancho:</label>
-                <input type="number" id="rectangular-width" name="rectangular-width" min="0" step="1" required
-                  placeholder=0>
-              </div>
-              <div>
-                <label for="rectangular-depth-low" class="label">Profundidad mínima:</label>
-                <input type="number" id="rectangular-depth-low" name="rectangular-depth-low" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="rectangular-width" name="rectangular-width" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
                 <label for="rectangular-depth-high" class="label">Profundidad máxima:</label>
-                <input type="number" id="rectangular-depth-high" name="rectangular-depth-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="rectangular-depth-high" name="rectangular-depth-high" min="0" step="0.01" required
+                  value=0>
+              </div>
+              <div>
+                <label for="rectangular-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="rectangular-depth-low" name="rectangular-depth-low" min="0" step="0.01" required
+                  value=0>
               </div>
             </div>
             <div class="btn-field">
               <div class="controls">
-                <button type="button" id="calcula-rectangulo">Calcular</button>
+                <button type="submit" id="calcula-rectangulo">Calcular</button>
                 <button type="reset" id="reset-rectangulo">Limpiar</button>
               </div>
-              <textarea class="resultado" id="resultado-rectangulo" readonly></textarea>
+              <textarea class="resultado" id="resultado-rectangulo" readonly disabled></textarea>
             </div>
 
           </form>
@@ -87,30 +88,31 @@
 
           <form class="form" id="formulario-redondo">
             
-          <h3>Piscina redonda</h3>
-
             <div class="measures-field">
+
+              <h3>Piscina redonda</h3>
+
               <div>
                 <label for="diameter" class="label">Diámetro:</label>
-                <input type="number" id="diameter" name="diameter" min="0" step="1" required placeholder=0>
-              </div>
-              <div>
-                <label for="round-depth-low" class="label">Profundidad mínima:</label>
-                <input type="number" id="round-depth-low" name="round-depth-low" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="diameter" name="diameter" min="0" step="0.01" required value=0>
               </div>
               <div>
                 <label for="round-depth-high" class="label">Profundidad máxima:</label>
-                <input type="number" id="round-depth-high" name="round-depth-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="round-depth-high" name="round-depth-high" min="0" step="0.01" required
+                  value=0>
+              </div>
+              <div>
+                <label for="round-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="round-depth-low" name="round-depth-low" min="0" required
+                  value=0>
               </div>
             </div>
             <div class="btn-field">
               <div class="controls">
-                <button type="button" id="calcula-redondo">Calcular</button>
+                <button type="submit" id="calcula-redondo">Calcular</button>
                 <button type="reset" id="reset-redondo">Limpiar</button>
               </div>
-              <textarea class="resultado" id="resultado-redondo" readonly></textarea>
+              <textarea class="resultado" id="resultado-redondo" readonly disable></textarea>
             </div>
 
           </form>
@@ -130,30 +132,31 @@
 
           <form class="form" id="formulario-ovalo">
 
-            <h3>Piscina ovalada</h3>
-
             <div class="measures-field">
+
+              <h3>Piscina ovalada</h3>
+
               <div>
                 <label for="oval-lenght" class="label">Largo:</label>
-                <input type="number" id="oval-lenght" name="oval-lenght" min="0" step="1" required placeholder=0>
+                <input type="number" id="oval-lenght" name="oval-lenght" min="0" step="0.01" required value=0>
               </div>
               <div>
                 <label for="oval-width" class="label">Ancho:</label>
-                <input type="number" id="oval-width" name="oval-width" min="0" step="1" required placeholder=0>
-              </div>
-              <div>
-                <label for="oval-depth-low" class="label">Profundidad mínima:</label>
-                <input type="number" id="oval-depth-low" name="oval-depth-low" min="0" step="1" required placeholder=0>
+                <input type="number" id="oval-width" name="oval-width" min="0" step="0.01" required value=0>
               </div>
               <div>
                 <label for="oval-depth-high" class="label">Profundidad máxima:</label>
-                <input type="number" id="oval-depth-high" name="oval-depth-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="oval-depth-high" name="oval-depth-high" min="0" step="0.01" required
+                  value=0>
+              </div>
+              <div>
+                <label for="oval-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="oval-depth-low" name="oval-depth-low" min="0" step="0.01" required value=0>
               </div>
             </div>
             <div class="btn-field">
               <div class="controls">
-                <button type="button" id="calcula-ovalo">Calcular</button>
+                <button type="submit" id="calcula-ovalo">Calcular</button>
                 <button type="reset" id="reset-ovalo">Limpiar</button>
               </div>
               <textarea class="resultado" id="resultado-ovalo" readonly></textarea>
@@ -176,37 +179,38 @@
 
           <form class="form" id="formulario-rinon">
             
-            <h3>Piscina riñón</h3>
-
             <div class="measures-field">
+
+              <h3>Piscina riñón</h3>
+
               <div>
                 <label for="kidney-lenght" class="label">Largo:</label>
-                <input type="number" id="kidney-lenght" name="kidney-lenght" min="0" step="1" required placeholder=0>
-              </div>
-              <div>
-                <label for="kidney-width-low" class="label">Ancho menor:</label>
-                <input type="number" id="kidney-width-low" name="kidney-width-low" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="kidney-lenght" name="kidney-lenght" min="0" step="0.01" required value=0>
               </div>
               <div>
                 <label for="kidney-width-high" class="label">Ancho mayor:</label>
-                <input type="number" id="kidney-width-high" name="kidney-width-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="kidney-width-high" name="kidney-width-high" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
-                <label for="kidney-depth-low" class="label">Profundidad mínima:</label>
-                <input type="number" id="kidney-depth-low" name="kidney-depth-low" min="0" step="1" required
-                  placeholder=0>
+                <label for="kidney-width-low" class="label">Ancho menor:</label>
+                <input type="number" id="kidney-width-low" name="kidney-width-low" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
                 <label for="kidney-depth-high" class="label">Profundidad máxima:</label>
-                <input type="number" id="kidney-depth-high" name="kidney-depth-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="kidney-depth-high" name="kidney-depth-high" min="0" step="0.01" required
+                  value=0>
+              </div>
+              <div>
+                <label for="kidney-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="kidney-depth-low" name="kidney-depth-low" min="0" step="0.01" required
+                  value=0>
               </div>
             </div>
             <div class="btn-field">
               <div class="controls">
-                <button type="button" id="calcula-rinon">Calcular</button>
+                <button type="submit" id="calcula-rinon">Calcular</button>
                 <button type="reset" id="reset-rinon">Limpiar</button>
               </div>
               <textarea class="resultado" id="resultado-rinon" readonly></textarea>
@@ -227,34 +231,35 @@
           </div>
 
           <form class="form" id="formulario-triangulo">
-
-            <h3>Piscina triangular</h3>
-            
+         
             <div class="measures-field">
+
+              <h3>Piscina triangular</h3>
+
               <div>
                 <label for="triangular-lenght" class="label">Largo:</label>
-                <input type="number" id="triangular-lenght" name="triangular-lenght" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="triangular-lenght" name="triangular-lenght" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
                 <label for="triangular-width" class="label">Ancho:</label>
-                <input type="number" id="triangular-width" name="triangular-width" min="0" step="1" required
-                  placeholder=0>
-              </div>
-              <div>
-                <label for="triangular-depth-low" class="label">Profundidad mínima:</label>
-                <input type="number" id="triangular-depth-low" name="triangular-depth-low" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="triangular-width" name="triangular-width" min="0" step="0.01" required
+                  value=0>
               </div>
               <div>
                 <label for="triangular-depth-high" class="label">Profundidad máxima:</label>
-                <input type="number" id="triangular-depth-high" name="triangular-depth-high" min="0" step="1" required
-                  placeholder=0>
+                <input type="number" id="triangular-depth-high" name="triangular-depth-high" min="0" step="0.01" required
+                  value=0>
+              </div>
+              <div>
+                <label for="triangular-depth-low" class="label">Profundidad mínima:</label>
+                <input type="number" id="triangular-depth-low" name="triangular-depth-low" min="0" step="0.01" required
+                  value=0>
               </div>
             </div>
             <div class="btn-field">
               <div class="controls">
-                <button type="button" id="calcula-triangulo">Calcular</button>
+                <button type="submit" id="calcula-triangulo">Calcular</button>
                 <button type="reset" id="reset-triangulo">Limpiar</button>
               </div>
               <textarea class="resultado" id="resultado-triangulo" readonly></textarea>
@@ -270,12 +275,12 @@
 
     <article class="info">
 
-      <section>
-        <h3>Cómo calcular volúmenes</h3>
+      <section class="info-text">
+        <h4>Cómo calcular volúmenes</h4>
+
         <p>Para calcular la capacidad de una espacio es necesario medir el área de la superfice y su profundidad.
           Conociendo las fórmulas para calcular estas magnitudes podemos determinar de manera sencilla cuánto fluido
           se necesita para llenar una piscina.
-
         </p>
       </section>
     </article>

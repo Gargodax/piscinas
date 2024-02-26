@@ -1,11 +1,16 @@
 body{
-    background: linear-gradient(rgb(254, 254, 250), rgb(255, 162, 40));
-    font-family: Helvetica, sans-serif;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3)),
+                      url(assets/water-gif.gif);    font-family: Helvetica, sans-serif;
+    background-size: cover;
+    background-position: top ;
+    background-repeat: no-repeat;
+    font-size: 1rem;
 }
 
 h1{
     text-align: center;
     width: 100%;
+    height: auto;
     font-size: 2.5em;
 }
 
@@ -25,8 +30,8 @@ main{
 
 .card-container{
     width: 20rem;
-    height:25rem;
-    font-size: 1.2em;
+    height:30rem;
+    font-size: 1em;
     cursor: pointer;
 }
 
@@ -47,16 +52,16 @@ main{
 .portada{
     width: 100%;
     height: 100%;
-    border: .2rem solid rgb(254, 254, 250);
+    border: 1.5px solid rgba(209, 213, 219, 0.3);
     border-radius: 1.5rem;
     box-shadow: 0 0 .5rem .25rem rgba(50, 50, 50, .25);
+    backdrop-filter: blur(.4rem);
     position: absolute;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgb(60, 60, 255), rgba(200, 180, 0, 0.5)),
-                      url(assets/water.jpg);
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3));
     backface-visibility: hidden;
 
 }
@@ -72,18 +77,16 @@ main{
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-image: linear-gradient(rgb(60, 60, 255), rgba(200, 180, 0, 0.5)),
-    url(assets/water.jpg);
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3));
     transform:rotateY(180deg);
     backface-visibility: hidden;
 
 }
 
-.form>h3{
+.measures-field>h3{
     color: rgb(254, 254, 250);
     font-size: 1.2em;
     text-decoration: underline;
-    margin-bottom: -3rem;
     padding: 0;
     text-align: center;
 }
@@ -105,7 +108,10 @@ main{
     flex-wrap: wrap;
     border: 0;
     border-radius: .5rem;
+    border: .12rem solid black;
+    background: linear-gradient(rgba(254, 254, 250, 1), rgba(254, 254, 250, .8));
     text-indent: .5em;
+    height: 1.2rem;
 }
 
 .label{
@@ -127,29 +133,25 @@ main{
 }
 
 .controls > button{
+    height: 1.8rem;
     width:45% ;
     margin: .25rem;
     padding: .25rem;
     border-radius: .25rem;
+    border: .12rem solid black;
     background: linear-gradient(rgba(254, 254, 250, 1), rgba(254, 254, 250, .8));
 }
 
 .resultado{
     height:auto;
-    background-color: rgb(254, 254, 250);
+    background: linear-gradient(rgba(254, 254, 250, 1), rgba(254, 254, 250, .8));
     border-radius: .5rem;
+    border: .12rem solid black;
     resize: none;
+    color:black;
     font-size: large;
     text-align: center;
     font-weight: bold;
-}
-
-.info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
 }
 
 .titulo-tarjeta{
@@ -157,10 +159,16 @@ main{
     color: rgb(254, 254, 250);
     font-size: 1.8em;
     text-align: center;
-    filter: drop-shadow(1rem 1rem .50rem black) ;
+    filter: drop-shadow(1rem 1rem .5rem black) ;
 }
 
-.main-text>p{
-    font-size: 1.5rem;
+.main-text,
+.info-text{
+    font-size: 1.2rem;
     text-align: center;
+}
+
+.nota{
+    font-size: small;
+    font-style:italic;
 }
